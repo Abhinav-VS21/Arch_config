@@ -127,7 +127,7 @@ bindsym $mod+r mode "resize"
 # Finds out, if available)
 bar {
         status_command i3status
-        mode invisible
+         mode invisible
 }
 
 
@@ -146,8 +146,6 @@ client.background       #ffffff
 
 # Apply .Xresource. As far as I know, only needed here if using starx (dont have a login manager)
 exec_always --no-startup-id xrdb ~/.Xresources
-
-#Border
 
 
 # Pulse Audio controls
@@ -189,6 +187,6 @@ bindsym $mod+Control+f exec firefox --new-window music.youtube.com
 
 bindsym $mod+shift+f exec firefox 
 
-bindsym $mod+shift+m exec alacritty -e cava 
-
+# picom exec 
+exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
