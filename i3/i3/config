@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # Set display resolution
-exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 165.00 
+exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 165.00
 
 # Press mod key to be able to resize floating windows
 floating_modifier $mod
@@ -13,8 +13,8 @@ bindsym $mod+Return exec kitty
 #Close window
 bindsym $mod+Shift+q kill
 
-# Open dmenu 
-bindsym $mod+d exec dmenu_run -fn 'Overpass Mono:pixelsize=15' -l 3 
+# Open dmenu
+bindsym $mod+d exec dmenu_run -fn 'Overpass Mono:pixelsize=15' -l 3
 
 # Change focus
 bindsym $mod+h focus left
@@ -172,21 +172,18 @@ exec_always --no-startup-id "wal -R && $HOME/.config/polybar/launch.sh"
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-# keybindings for i3lock 
+# keybindings for i3lock
 bindsym $mod+x exec i3lock -i $(cat $HOME/.cache/wal/wal)
-# ----------------------------------------------------------------------------------------------------------------
-# Add this to your i3 config to take a screenshot (selection) and save it to the clipboard just by pressing PrtSc!
-# The resulting file will have this format: screenshot_02-Dec-2021_13-24-21.png
-#
-# NOTE: This assumes you have a directory ~/screenshots and you have installed:
-#   - maim
-#   - xclip
-# ----------------------------------------------------------------------------------------------------------------
-# firefox shortcut key
-bindsym $mod+Control+f exec firefox --new-window music.youtube.com
 
-bindsym $mod+shift+f exec firefox 
+# Screenshot keybindings
+# Fullscreen screenshot
+bindsym Print exec --no-startup-id maim | tee ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png | xclip -selection clipboard -t image/png
 
-# picom exec 
+# Select area to screenshot
+bindsym Shift+Print exec --no-startup-id maim -s | tee ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png | xclip -selection clipboard -t image/png
+
+# Active window screenshot
+bindsym Control+Print exec --no-startup-id maim -i $(xdotool getactivewindow) | tee ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png | xclip -selection clipboard -t image/png
+
+# picom exec
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
-
