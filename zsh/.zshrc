@@ -85,3 +85,8 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export CHROME_EXECUTABLE=/usr/bin/firefox
 export FLUTTER_ROOT=/usr/lib/flutter
 export PATH="/usr/lib/flutter/bin:$PATH"
+
+
+#exporting bash-script directory 
+
+export PATH=$PATH":$HOME/bash-script"
