@@ -6,7 +6,7 @@ My personal configuration files for Arch Linux, managed with [GNU Stow](https://
 
 Clone the repository:
 ```bash
-git clone https://github.com/<your-username>/dotfiles.git ~/dotfiles
+git clone https://github.com/Abhinav-VS21/Arch_config ~/dotfiles
 cd ~/dotfiles
 ```
 
