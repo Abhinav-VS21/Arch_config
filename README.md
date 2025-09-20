@@ -58,4 +58,6 @@ zsh/
   stow -D <module>
   ```
 
+## TODO
+- automating this whole setup
 ---
